@@ -1,11 +1,11 @@
 # betaflight-installer-linux
-HI! This is a script to install Betaflight on Linux.
+Hi! This is a script to install Betaflight on Linux.
 
 # Installation
 
 1. Clone this repo.
     ```shell
-    git clone https://gitlab.com/Plunne/betaflight-installer-linux
+    git clone https://github.com/Plunne/betaflight-installer-linux
     cd betaflight-installer-linux
     ```
 
