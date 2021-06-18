@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Remove old
+rm -rf ~/.local/share/applications/betaflight-configurator.desktop
+sudo rm -rf /opt/betaflight/betaflight-configurator/run.sh
+
 # Display connected ports with device name
 for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
     (
