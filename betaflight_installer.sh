@@ -27,27 +27,26 @@ wget https://github.com/betaflight/betaflight-configurator/releases/download/10.
 unzip betaflight-configurator_*
 
 # Move to /opt
-sudo mkdir /opt/betaflight
-sudo cp -r Betaflight\ Configurator /opt/betaflight/betaflight-configurator
+sudo cp -r Betaflight\ Configurator /opt/betaflight
 
 # Create a Launcher to .local/share/applications
 cat >> ~/.local/share/applications/betaflight-configurator.desktop << EOL
 [Desktop Entry]
 Name=Betaflight Configurator
 Comment=Crossplatform configuration tool for the Betaflight flight control system
-Exec=/opt/betaflight/betaflight-configurator/run.sh
-Icon=/opt/betaflight/betaflight-configurator/icon/bf_icon_128.png
+Exec=/opt/betaflight/run.sh
+Icon=/opt/betaflight/icon/bf_icon_128.png
 Type=Application
 Categories=Utility
 EOL
 sudo chmod +x ~/.local/share/applications/betaflight-configurator.desktop
 
 # Create a running script for port permissions
-BF_DIR=/opt/betaflight/betaflight-configurator/run.sh
+BF_DIR=/opt/betaflight/run.sh
 sudo touch $BF_DIR
 
 sudo sh -c "echo \#! /bin/sh > $BF_DIR"
-sudo sh -c "echo cd /opt/betaflight/betaflight-configurator >> $BF_DIR"
+sudo sh -c "echo cd /opt/betaflight >> $BF_DIR"
 sudo sh -c "echo '\$TERMINAL' -e sh -c \'sudo chmod 777 $ttyPort\' >> $BF_DIR"
 sudo sh -c "echo ./betaflight-configurator >> $BF_DIR"
 
@@ -55,7 +54,7 @@ sudo chmod +x $BF_DIR
 
 # Clean
 rm -rf Betaflight\ Configurator
-rm -rf betaflight-configurator_10.7.0_linux64.zip
+rm -rf betaflight-configurator_*
 
 # Finished
 echo -e "\n***** FINISHED ! ******\n"
